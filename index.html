@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子供英会話教室イングリッシュストーン: カッシと通話</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font and overall aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Set the background image */
+            background-image: url('https://content-fetcher.google-genai.com/api/files/image_c9beb7.png-fb4b28a9-08c5-4c53-a4c0-7ff4b1881d3f');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Keep the background fixed when scrolling */
+            background-color: #f8f9fa; /* Fallback background color */
+        }
+        /* Ensure the Voiceflow widget is visible and not hidden by other elements */
+        .voiceflow-chat-widget {
+            z-index: 9999; /* High z-index to ensure it's on top when opened */
+        }
+    </style>
+
+    <!-- Google Analytics Global Site Tag (gtag.js) -->
+    <!-- IMPORTANT: Replace 'G-XXXXXXXXXX' with your actual Google Analytics Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6P1WP8QRRP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6P1WP8QRRP'); // Replace with your actual Google Analytics Measurement ID
+    </script>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="max-w-2xl w-full bg-white rounded-xl shadow-lg p-8 md:p-12 text-center bg-opacity-90">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4">
+            子供英会話教室イングリッシュストーンへようこそ！
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 mb-6" id="statusMessage">
+            英語の練習をする準備はできましたか？右下のチャットアイコンをクリックして、<span class="font-semibold text-purple-700">フレンドリーなパンダのカッシ</span>と会話を始めましょう。彼女はあなたを助ける準備ができています！
+        </p>
+        <p class="text-sm text-gray-500 mt-4">
+            最高の体験のために、マイクが有効になっていることを確認してください。
+        </p>
+    </div>
+
+    <!-- Voiceflow Chatbot Embed Code -->
+    <script type="text/javascript">
+        // This script will now load the Voiceflow chatbot directly for testing purposes.
+        // IMPORTANT: This bypasses the token validation for now.
+        // For credit protection, you MUST implement the backend token validation as discussed previously.
+
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                // Initialize the Voiceflow chat widget
+                window.voiceflow.chat.load({
+                    verify: { projectID: '686b0a037aa350d9b6d38f69' }, // Your Voiceflow Project ID
+                    url: 'https://general-runtime.voiceflow.com', // Voiceflow runtime URL
+                    versionID: 'production', // Use the production version of your agent
+                    voice: {
+                        url: "https://runtime-api.voiceflow.com" // Voice API URL for voice interactions
+                    }
+                });
+            }
+            // Set the source and type for the Voiceflow widget bundle
+            v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+            v.type = "text/javascript";
+            // Insert the script into the document
+            s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+
+        // Update the status message to indicate the chatbot should be visible
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusMessageElement = document.getElementById('statusMessage');
+            if (statusMessageElement) {
+                statusMessageElement.textContent = '英語の練習をする準備はできましたか？右下のチャットアイコンをクリックして、フレンドリーなパンダのカッシと会話を始めましょう。彼女はあなたを助ける準備ができています！';
+            }
+        });
+    </script>
+</body>
+</html>
